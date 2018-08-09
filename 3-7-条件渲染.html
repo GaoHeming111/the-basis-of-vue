@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>style样式设置</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--都能控制标签在页面上是否显示，推荐使用v-show-->
+			<!--v-if的值如果为false，则dom标签不存在页面上-->
+			<!--v-show的值如果为false，则dom标签被设置为display：none，是存在页面中的-->
+			<div v-if='show'>{{message}}</div>
+			<div v-show='show'>{{message}}</div>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					show:false,
+					message:"hello word",
+				}
+			})
+		</script>
+	</body>
+</html>

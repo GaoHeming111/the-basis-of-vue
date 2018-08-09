@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>class和数组绑定</title>
+		<script src="js/vue.js"></script>
+		<style>
+			.activated{color:red;}
+		</style>
+	</head>
+	
+	
+	<body>
+		<div id="app">
+													<!--这是个数组，里面是变量-->
+			<div @click='handleDivClick' :class="[activated]">
+				hello word
+			</div>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					activated:"",
+				},
+				methods:{
+					handleDivClick:function(){
+						if(this.activated=='activated'){
+							this.activated='';
+						}else{
+							this.activated='activated';
+						}
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

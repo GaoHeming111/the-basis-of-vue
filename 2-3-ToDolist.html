@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			<input type="text" v-model='inputValue' />
+			<button @click='handleBtnClick'>提交</button>
+			<ul>
+				<li v-for='item in list'>{{item}}</li>
+			</ul>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					list:[],
+					inputValue:''
+				}, 
+				//这上面一定要加一个逗号
+				methods:{
+					handleBtnClick:function(){
+						this.$data.list.push(this.inputValue);
+						this.inputValue='';
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

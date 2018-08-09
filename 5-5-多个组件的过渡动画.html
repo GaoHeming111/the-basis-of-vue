@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>组件过渡动画</title>
+		<script src="js/vue.js"></script>
+		<style>
+			.fade-enter,.fade-leave-to{opacity: 0;}
+			.fade-enter-active,.fade-leave-active{transition: opacity 1s;}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<transition name="fade" mode="out-in" >
+				<component :is="type"></component>
+			</transition>
+			<button @click='handleClick'>切换</button>
+		</div>
+		<script>
+			Vue.component('child',{
+				template:"<div>child</div>"
+			})
+			Vue.component('child-one',{
+				template:"<div>child-one</div>"
+			})
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					type:"child",
+				},
+				methods:{
+					handleClick:function(){
+						this.type=(this.type==='child'?'child-one':'child')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

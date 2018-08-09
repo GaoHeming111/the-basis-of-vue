@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>is解决html5标签的bug</title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<table>
+				<tbody>
+					<!--"is"属性，浏览器不能识别<row></row>标签，需要用<tr>里面加上is标签来实现-->
+					<tr is='row'></tr>
+					<tr is='row'></tr>
+					<tr is='row'></tr>
+				</tbody>
+			</table>
+		</div>
+		<script>
+			Vue.component('row',{
+				template:'<tr><td>this is a row</td></tr>'
+			})
+			var vm=new Vue({
+				el:"#root",
+				
+			})
+			
+		</script>
+	</body>
+</html>

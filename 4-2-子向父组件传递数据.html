@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<!--子组件通过事件的方式向父组件传递数据-->
+		<div id="root">
+			<counter :count="3" @inc="handleIncrease"></counter>
+			<counter :count="2" @inc="handleIncrease"></counter>
+			<div>{{total}}</div>
+		</div>
+		<script>
+			var counter={
+				props:['count'],
+				//因为传递数据是单向的，这里定义一个函数，用number表示父组件的count
+				data:function(){
+					return{
+						number:this.count
+					}
+				},
+				template:'<div @click="handleClick">{{number}}</div>',
+				methods:{
+					handleClick:function(){
+						this.number=this.number+2;
+						this.$emit('inc',2)
+					}
+				}
+			}
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					total:5,
+				},
+				components:{
+					counter:counter
+				},
+				methods:{
+					//step指步长 ，
+					handleIncrease:function(step){
+						this.total+=step;
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

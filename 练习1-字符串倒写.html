@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{func1()}}
+		</div>
+		<script>
+			var vn=new Vue({
+				el:'#app',
+				data:{
+					txt:'abcdefg',
+				},
+				methods:{
+					func1:function(){
+						var a=this.$data.txt;
+						//这里一定要加一个return
+						return a.split('').reverse().join('');
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

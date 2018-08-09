@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>计算属性 computed</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			{{fullName}}
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					firstName:'Dell',
+					lastName:'Lee',
+					age:28
+				},
+				computed:{
+					fullName:{
+						get:function(){
+							return this.firstName+" "+this.lastName;
+						},
+						//重新设置fullName的值
+						set:function(value){
+							var arr=value.split(' ');
+							this.firstName=arr[0];
+							this.lastName=arr[1];
+						}
+					}
+				}
+				
+			})
+			
+		</script>
+	</body>
+</html>

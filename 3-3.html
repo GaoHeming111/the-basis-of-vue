@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue模板语法</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			<!--这是三种模板语法,还有很多模板语法，里面都可以加‘LEE’这种字符串或表达式-->
+			<!--差值表达式-->
+			{{name + 'LEE'}}
+			<!--v-text-->
+			<div v-text='name + "LEE" '></div>
+			<!--v-html-->
+			<div v-html='name + "LEE" '></div>
+		</div>
+		<script>
+			//生命周期函数就是vue实例在某一个时间点会自动执行的函数
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					name:'dell'
+				}
+			})
+			
+		</script>
+	</body>
+</html>

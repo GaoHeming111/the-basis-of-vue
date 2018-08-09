@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--key指键名,item指键值，index指下标-->
+			<div v-for="(item,key,index) of userInfo">
+				{{item}}---{{key}}---{{index}}
+			</div>
+			
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					userInfo:{
+						name:"dell",
+						age:28,
+						gender:"male",
+						salary:"secret"
+					}
+				}
+			})
+			
+//			如果想向userInfo对象里面添加属性，例如添加address，用更改引用的方法
+			vm.userInfo={
+						name:"dell",
+						age:28,
+						gender:"male",
+						salary:"secret",
+						address:'河北省'
+					}
+		</script>
+	</body>
+</html>

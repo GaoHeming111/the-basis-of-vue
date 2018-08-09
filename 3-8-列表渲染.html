@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<!--template相当于模板占位符，可以包裹元素，但是在循环过程中并不会被渲染到页面中，提高性能-->
+		<template id="app">
+			<div  v-for="(item,index) of list"  :key='item.id'>
+				<div>
+					{{item.text}}----{{index}}
+				</div>
+				<span>
+					{{item.text}}
+				</span>
+			</div>
+		</template>
+		<script>
+			//下面是数组的几种变异方法，不能直接使用list[0]这种数组下标的形式
+			//push  pop  shift  unshift  splice  sort  reverse
+			//splice(开始位置下标，截取的数量，要添加的内容)
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					list:[{
+						id:'010120102',
+						text:'hello',
+					},{
+						id:'010120103',
+						text:'dell',
+					},{
+						id:'010120104',
+						text:'lee',
+					}]
+				},
+			})
+		</script>
+	</body>
+</html>

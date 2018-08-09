@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Velocity.js指动画库</title>
+		<script src="js/vue.js"></script>
+		<style>
+			.fade-enter,.fade-leave-to{opacity: 0;}
+			.fade-enter-active,.fade-leave-active{transition: opacity 1s;}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<!--mode="out-in" 指先隐藏在显示-->
+			<transition name="fade" mode="out-in" >
+				<!--给每个元素一个不同的key值-->
+				<div v-if="show" key="hello">hello world</div>
+				<div v-else key="Bye">Bye World</div>
+			</transition>
+			<button @click='handleClick'>切换</button>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					show:true,
+				},
+				methods:{
+					handleClick:function(){
+						this.show=!this.show
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

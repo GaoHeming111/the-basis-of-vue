@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>计算属性 computed</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			{{fullName}}
+			{{age}}
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					firstName:'Dell',
+					lastName:'Lee',
+					age:28
+				},
+				//计算属性,自带缓存功能，可以提高性能和速度
+				computed:{
+					fullName:function(){
+						return this.firstName+' '+this.lastName;
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

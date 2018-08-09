@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<!--ref定义dom节点-->
+			<div ref='hello' @click='handleClick'>
+				hello world
+			</div>
+		</div>
+		<script>
+			
+			var vm=new Vue({
+				el:"#root",
+				methods:{
+					handleClick:function(){
+						//“$refs”取到当前页面中的所有引用
+						//这句话的意思是取到当前对象下的所有引用，然后选中名称为hello的引用
+						alert(this.$refs.hello.innerHTML)
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

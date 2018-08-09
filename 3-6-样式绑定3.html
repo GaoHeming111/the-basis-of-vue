@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>style样式设置</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--‘：’是绑定,大括号是数组,这  里样式书写必须要用驼峰命名法-->
+			<div :style="[styleObj,{fontSize:'40px'}]" @click='handleDivClick'>
+				hello word
+			</div>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					styleObj:{
+						color:'black',
+					}
+				},
+				methods:{
+					handleDivClick:function(){
+						//这是一个三目运算符
+						this.styleObj.color=this.styleObj.color==='black' ? 'red' : 'black';
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

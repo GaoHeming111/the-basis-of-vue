@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style>
+			@keyframes  bounce-in{
+				0%{transform: scale(0);}
+				50%{transform: scale(1.5);}
+				100%{transform: scale(1);}
+			}
+			.active{ transform-origin:left center; animation: bounce-in 1s;}
+			.leave{ transform-origin:left center;  animation: bounce-in 1s reverse;}
+			/*fade-enter，fade-enter-active控制显示*/
+			/*fade-leave-to，fade-leave-active控制隐藏*/
+		</style>		
+	</head>
+	<body>
+		<div id="root">
+			<!--这个name=“fade”,是和上面样式表中的‘.fade-’对应的，当不写name时，样式表默认为‘.v-’-->
+			<transition name="fade" enter-active-class="active" leave-active-class="leave">
+				<div v-if="show">hello world</div>
+			</transition>
+			<button @click='handleClick'>切换</button>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					show:true,
+				},
+				methods:{
+					handleClick:function(){
+						this.show=!this.show
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

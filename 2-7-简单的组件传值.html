@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>使用组件化思想修改ToDolist</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			<input type="text" v-model='inputValue' />
+			<button @click='handleBtnClick'>提交</button>
+			<ul>
+				<!--这个todo-item和下面的全局方法TodoItem是对应的，但是必须小写-->
+				<!--父组件-->
+				<!--绑定事件"v-bind"可以直接简写为":"-->
+				<todo-item :content='item'
+							:index='index'
+					        v-for='(item,index) in list'
+					        @delete='handleItemDelete'
+					        >
+					        <!--"v-on:delete"简写为"@delete" 指监听事件-->
+				</todo-item>
+			</ul>
+		</div>
+		<script>
+			//子组件
+			var TodoItem={
+				//props指外部传递过来的数据；template指组件模板，即上面的“<todo-item></todo-item>”中的内容最终会被模板替换掉
+				props:['content','index'],
+				template:"<li @click='handleItemClick'>{{content}}</li>",
+				methods:{
+					handleItemClick:function(){
+						//$emit()实现子组件向父组件传值
+						this.$emit('delete',this.index);
+					}
+				}
+			}
+			var app=new Vue({
+				el:'#app',
+				//在这里用“components”调用组件，这个 单词不能打错
+				components:{
+					TodoItem:TodoItem
+				},
+				data:{
+					list:[],
+					inputValue:''
+				}, 
+				//这上面一定要加一个逗号
+				methods:{
+					handleBtnClick:function(){
+						this.$data.list.push(this.inputValue);
+						this.inputValue='';
+					},
+					handleItemDelete:function(index){
+						this.list.splice(index,1);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

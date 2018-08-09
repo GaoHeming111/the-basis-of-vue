@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>slot</title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<child>
+				<p>dell</p>
+			</child>
+		</div>
+		<script>
+			Vue.component('child',{
+				//子组件用slot来接受父组件传递过来的内容,即<p>dell</p>
+				template:`<div>
+							<p>hello</p>
+							<slot></slot>
+						 </div>`
+			})
+			var vm=new Vue({
+				el:"#root",
+			})
+			
+		</script>
+	</body>
+</html>

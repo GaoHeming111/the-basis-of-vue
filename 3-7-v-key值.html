@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>style样式设置</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--当给 某个元素标签加一个key值时，vue会知道这个标签是唯一的-->
+			<div v-if='show'>
+				用户名：<input key='username' />
+			</div>
+			<div v-else>
+				邮箱名：<input key='password'/>
+			</div>
+ 		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					show:false,
+				}
+			})
+		</script>
+	</body>
+</html>

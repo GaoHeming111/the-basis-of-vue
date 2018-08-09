@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>方法</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			<!--方法的调用：函数名要加括号-->
+			{{fullName()}}
+			{{age}}
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					firstName:'Dell',
+					lastName:'Lee',
+					age:28
+				},
+				methods:{
+					fullName:function(){
+						return this.firstName+""+this.lastName;
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>style样式设置</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--记住v-if里面的写法-->
+			<div v-if='show==="a" '>this is a</div>
+			<div v-else-if="show==='b' ">this is b</div>
+			<div v-else>this is others</div>
+ 		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					show:"a",
+					
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div v-for="(item,index) of userInfo">
+				{{item}}
+			</div>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					userInfo:[1,2,3,4]
+				}
+			})
+			//通过Vue的set方法改变数组内容
+			Vue.set(vm.userInfo,1,5)
+			//通过实例vm的$set方法改变数组内容
+			vm.$set(vm.userInfo,2,10)
+			//第一个数字是要改变内容的下标，第二个数字是要改变成什么内容
+		</script>
+	</body>
+</html>

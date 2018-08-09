@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>纯CSS实现百叶窗</title>
+        <style type="text/css">
+            *{list-style: none;}
+        </style>
+        <script type="text/javascript" src="js/vue.js" ></script>
+    </head>
+    <body>
+        <div id="app" v-for="(item,index) of list" :key="index">     	
+    		<p>
+    			{{item.title}}
+    		</p>
+    		<p>
+    			<child :childList="item.children"></child>
+    		</p>
+        </div>
+        <script>
+        	Vue.component('child',{
+        		props:{
+        			childList:Array
+        		},
+        		data () {
+        			return {
+        				childList:[]
+        			}
+        		}
+        	})
+        	var vm = new Vue({
+        		el: '#app',
+        		data:{
+        			list:[{
+        				title:"一级标题",
+        				children:[{
+        					title:"二级标题",
+        					children:[{
+        						title:"三级标题"
+        					}]
+        				}]
+        			},{
+        				title:"一级标题",
+        				children:[{
+        					title:"二级标题",
+        					children:[{
+        						title:"三级标题"
+        					}]
+        				}]
+        			}]
+        		}
+        	})
+        </script>
+    </body>
+</html>

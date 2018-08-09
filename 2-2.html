@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="app">
+			{{content}}
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					content:'hello world'
+				}
+			})
+			setTimeout(function(){
+				//调用app下的数据data用‘$’.记住！！！！
+				app.$data.content='bye word'
+			},2000)
+		</script>
+	</body>
+</html>

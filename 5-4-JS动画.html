@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Velocity.js指动画库</title>
+		<script src="js/vue.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<transition name="fade"
+						@before-enter="handleBeforeEnter"
+						@enter="handleEnter"
+						@after-enter="handleAfterEnter" >
+				<div v-if="show">hello world</div>
+			</transition>
+			<button @click='handleClick'>切换</button>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					show:true,
+				},
+				methods:{
+					handleClick:function(){
+						this.show=!this.show
+					},
+					//el传递的是包裹动画的div标签，即hello world
+					handleBeforeEnter:function(el){
+						el.style.color='red'
+					},
+					//"()=>"的含义是function(){return}
+					handleEnter:function(el,done){
+						setTimeout(()=>{
+							el.style.color="green"
+						},2000)
+						setTimeout(()=>{
+							done()
+						},4000)
+					},
+					handleAfterEnter:function(el){
+						el.style.color="#000";
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

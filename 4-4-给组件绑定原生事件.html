@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<!--这是自定义事件     加上‘.native’意思是把自定义事件转换为原生事件，这样就不用再去全局组件里定义函数-->
+			<child @click.native='handleClick'></child>
+		</div>
+		<script>
+			Vue.component('child',{
+					//这里是原生事件
+				template:"<div>Child</div>",
+			})
+			var vm=new Vue({
+				el:"#root",
+				methods:{
+					handleClick:function(){
+					 	alert(1);
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

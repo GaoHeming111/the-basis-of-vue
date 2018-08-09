@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue实例</title>
+	</head>
+	<script src="js/vue.js"></script>
+	
+	<body>
+		<div id="root">
+			<div @click='handleClick'>
+				{{message}}
+			</div>
+			<item></item>
+		</div>
+		<script>
+			//全局组件
+			Vue.component('item',{
+				template:'<div>hello item</div>'
+			})
+			//调用实例vm的属性：vm.$data
+			//vm.$destroy 指销毁vm这个实例
+			var vm=new Vue({
+				el:'#root',
+				data:{
+					message:'hello world'
+				},
+				methods:{
+					handleClick:function(){
+						alert(1);
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

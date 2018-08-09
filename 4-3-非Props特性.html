@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<!--
+		props特性要求父组件传值，子组件必须接值，不会把属性显示在dom标签中。
+	        非props特性是：子组件不接受父组件传过来的值，对应的属性会显示在最外层的dom标签中
+		-->
+		<div id="root">
+			<child content="1111111111111"></child>
+		</div>
+		<script>
+			Vue.component('child',{
+				props:{
+					//允许父组件传递过来的参数类型为 整型或者字符串
+					content:{
+						type:[String,Number],
+						//required指是否绑定了content属性，如果为true,则没有绑定时会报错
+						required:true,
+						//default指没有绑定content属性时，会显示default的内容
+						default:'default value',
+						//validator指校验器,当content的长度大于5时才不会报错
+						validator:function(value){
+							return (value.length>5)
+						}
+					}
+				},
+				template:"<div>{{content}}</div>"
+			})
+			var vm=new Vue({
+				el:"#root",
+			})
+			
+		</script>
+	</body>
+</html>

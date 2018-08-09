@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡切换</title>
+</head>
+<script src="js/vue.js"></script>
+<style>
+	.red{background: red;}
+	.wrap div{display: none;}
+</style>
+<body>
+	<div class="wrap">
+		<input 
+			type="button" 
+			v-for="(item,index) in list"
+			:value="item.title" 
+			:class="{red:index===i}"
+			@click="tabHandle(index)">
+		<div 
+			v-for="(item,index) in list"
+			:style="{display: index===i ?'block' :'none' }">
+			<p v-for="option in item.news">{{option.subtit}}</p>
+		</div>
+	</div>
+	<script>
+		var list=[
+			{
+				title:"体育",
+				news:[
+					{subtit:"aaaa"},
+					{subtit:"aaa"}
+				]
+			},
+			{
+				title:"娱乐",
+				news:[
+					{subtit:"bbbb"},
+					{subtit:"bbb"}
+				]
+			},
+			{
+				title:"电竞",
+				news:[
+					{subtit:"cccc"},
+					{subtit:"ccc"}
+				]
+			}
+		];
+		var vm=new Vue({
+			el:".wrap",
+			data:{
+				list,
+				i:0
+			},
+			methods:{
+				tabHandle:function(index){
+					this.i=index
+				}
+			}
+		})
+	</script>
+</body>
+</html>

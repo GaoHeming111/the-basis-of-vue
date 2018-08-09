@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>style样式设置</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--v-if 和 v-else 必须连在一起使用，中间不能加入任何标签-->
+			<div v-if='show'>{{message}}</div>
+			<!--这里不能加任何标签,例如span-->
+			<!--<span>text</span>-->
+			<div v-else>Bye World</div>
+ 		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					show:false,
+					message:"hello word",
+				}
+			})
+		</script>
+	</body>
+</html>

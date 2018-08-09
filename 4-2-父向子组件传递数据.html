@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<!--父组件通过“绑定属性”向子组件传递数据,子组件“不能”修改父组件传递过去的数据，称为单向数据流-->
+		<div id="root">
+			<counter :count="0"></counter>
+			<counter :count="1"></counter>
+		</div>
+		<script>
+			var counter={
+				props:['count'],
+				//因为传递数据是单向的，这里定义一个函数，用number表示父组件的count
+				data:function(){
+					return{
+						number:this.count
+					}
+				},
+				template:'<div @click="handleClick">{{number}}</div>',
+				methods:{
+					handleClick:function(){
+						this.number++;
+					}
+				}
+			}
+			var vm=new Vue({
+				el:"#root",
+				components:{
+					counter:counter
+				}
+			})
+			
+		</script>
+	</body>
+</html>

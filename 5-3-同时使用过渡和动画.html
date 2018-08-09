@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.css" />
+		<style>
+			.fade-enter,.fade-leave-to{opacity: 0;}
+			.fade-enter-active,.fade-leave-active{transition: opacity 3s; }
+		</style>
+	</head>
+	<body>
+		<div id="root">
+					<!--必须要先写一个appear,目的是进入页面时就有效果-->
+					<!--type="transition"，目的是让动画的持续时间以style里设置的时间为主-->
+					<!--:duration:指入场动画和出场动画的持续时间-->
+			<transition :duration="{enter:5000,leave:10000}"
+						name="fade" 
+						appear  
+						appear-active-class="animated swing" 
+						enter-active-class="animated swing fade-enter-active" 
+						leave-active-class="animated shake fade-leave-active"
+						>
+				<div v-if="show">hello world</div>
+			</transition>
+			<button @click='handleClick'>切换</button>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#root",
+				data:{
+					show:true,
+				},
+				methods:{
+					handleClick:function(){
+						this.show=!this.show
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
