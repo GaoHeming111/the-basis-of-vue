@@ -27,7 +27,7 @@
                         this.age='';
                     },
                     deleteMsg:function(n){
-                        if(n==-2){
+                        if(n==0){
                             this.myData=[];
                         }else{
                             this.myData.splice(n,1);
@@ -75,7 +75,7 @@
             </tr>
             <tr v-show="myData.length!=0">
                 <td colspan="4" class="text-right">
-                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=-2">删除全部</button>
+                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=0">删除全部</button>
                 </td>
             </tr>
             <tr v-show="myData.length==0">

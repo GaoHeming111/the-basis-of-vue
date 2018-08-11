@@ -18,7 +18,7 @@
 		</div>
 		<script>
 			Vue.component('row',{
-				//子组件的data里面存放的必须是函数，因为子组件可能会被调用很多次，让每一个子组件都有独立的存储
+				//vue 实例中的data是对象的写法，但是在组件中data是函数的写法，是因为写成函数，会有函数作用域的概念 ，是私有函数，只作用到当前组件中，不会影响到其它各个不同的组件
 				data:function(){
 					return{
 						content:"this is content"
