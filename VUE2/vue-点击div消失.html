@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            var c =new Vue({
+//              el:后面放的是：选择器,body等，并且一定要加一个逗号，
+                el:"#box",
+//                data 存放数据
+                data:{
+                    a:true
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+
+        <input type="button" value="按钮" v-on:click="a=false"> <br>
+        <!-- v-show="true/false"控制显示或隐藏，只有两种属性 -->
+        <div style="width: 100px; height: 100px; background: red;"  v-show='a' ></div>
+    </div>
+</body>
+</html>

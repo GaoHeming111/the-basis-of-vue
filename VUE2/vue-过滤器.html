@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            var c =new Vue({
+//              el:后面放的是：选择器,body等，并且一定要加一个逗号，
+                el:"#box",
+                data:{
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <!--2.0中很多自带属性不能用了-->
+        {{12|currency}}
+    </div>
+</body>
+</html>

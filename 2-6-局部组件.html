@@ -12,7 +12,7 @@
 			<button @click='handleBtnClick'>提交</button>
 			<ul>
 				<!--这个todo-item和下面的全局方法TodoItem是对应的，但是必须小写-->
-				<todo-item v-bind:content='item' 
+				<todo-item :content='item' 
 					        v-for='item in list'>
 				</todo-item>
 			</ul>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            var c =new Vue({
+//              el:后面放的是：选择器,body等，并且一定要加一个逗号，
+                el:"#box",
+                data:{
+                    once:"once content"
+                }
+
+            });
+
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="once">
+        <!-- 数据只绑定一次-->
+        <p v-once>{{once}}</p>
+        <!-- 转意html，例如文本框输入<b>2</b>,下面的数据“2”会加粗显示-->
+        <p v-html="once">{{once}}</p>
+    </div>
+
+</body>
+</html>

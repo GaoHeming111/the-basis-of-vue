@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script src="vue-resource.js"></script>
+    <style>
+        .red{color: red;}
+        .blue{background: blue;}
+    </style>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:"#box",
+                data:{
+                    a:true,
+                    b:false
+                },
+
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <!-- red后面必须加上':true'表示执行这个样式-->
+        <p :class="{red:true}">文字。。。。</p><br>
+        <!-- 这里用a和b代替了true和false，意思是可以传递数据-->
+        <p :class="{red:a,blue:b}">文字。。。。</p>
+    </div>
+</body>
+</html>

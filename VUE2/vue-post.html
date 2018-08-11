@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js">
+        <!-- -->
+    </script>
+    <script src="vue-resource.js"></script>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:"#box",
+                data:{
+
+                },
+                methods:{
+                    post:function(){
+//                   如果正确执行第一个函数，如果错误执行第二个函数
+                        this.$http.post('get.php',{
+                            a:1,
+                            b:2
+                        },{
+//                          "emulateJSON 是post独有的，必须加上"
+                            emulateJSON:true
+                        }).then(function(res){
+                            alert(res.data);
+                        },function(){
+                            alert("抛出错误")
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="按钮" @click="post()" >
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            var c=new Vue({
+//              el:后面放的是：选择器,body等，并且一定要加一个逗号，
+                el:"#box",
+                data:{
+                    msg:"welcome Vue",
+                    msg2:12,
+                    msg3:true,
+                    arr:['apple','pear','banana','orange'],
+                    json:{a:"apple",b:"banana",c:"pear"}
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <!-- 这是双向绑定，改变文本框内容，除它之外内容也随之改变-->
+        <input type="text" v-model="msg">
+        {{msg}}<br>
+        {{msg2}}<br>
+        {{msg3}}<br>
+        {{arr}}<br>
+        {{json}}<br>
+    </div>
+</body>
+</html>

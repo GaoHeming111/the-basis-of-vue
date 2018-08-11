@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            var c=new Vue({
+//              el:后面放的是选择器,并且一定要加一个逗号，
+                el:"#box",
+                data:{
+                    msg:"welcome Vue"
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        {{msg}}
+    </div>
+</body>
+</html>
