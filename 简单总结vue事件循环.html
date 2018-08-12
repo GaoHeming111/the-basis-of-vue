@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		简单总结事件循环：
+
+		同步代码执行 -> 查找异步队列，推入执行栈，执行Vue.nextTick[事件循环1] ->
+		查找异步队列，推入执行栈，执行Vue.nextTick[事件循环2]...
+		
+		总之，异步是单独的一个tick，不会和同步在一个 tick 里发生，也是 DOM 不会马上改变的原因。
+	</body>
+</html>
