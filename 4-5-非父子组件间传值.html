@@ -26,11 +26,13 @@
 				template:"<div @click='handleClick'>{{selfContent}}</div>",
 				methods:{
 					handleClick:function(){
+						//一个组件通过$emit发送数据
 						this.bus.$emit('change',this.selfContent)
 					}
 				},
 				mounted:function(){
 					var this_=this;
+					//另外一个组件通过$on接收数据
 					this.bus.$on('change',function(msg){
 						this_.selfContent=msg;
 					})
