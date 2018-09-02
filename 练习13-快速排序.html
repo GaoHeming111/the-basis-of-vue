@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var timer=null;
+			
+		</script>
+		<style>
+			.father{position:fixed; width:100%; height: 100%; top: 0; left: 0; background: black;}
+			.son{position: absolute; left: 0; top: 0; bottom: 0; background: red;}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		//优化
+			//左中右三数取中，中间那个数为轴，并用0下标元素存储基准
+		function quickSort(arr){
+			if(arr.length<=1){
+				return arr;
+			}
+			var num = Math.floor(arr.length/2);
+			var center = arr.splice(num,1)[0];
+			let leftArr = [];
+			let rightArr =[];
+			for(var i =0;i<arr.length;i++){
+				if(arr[i]<center){
+					leftArr.push(arr[i]);
+				}else{
+					rightArr.push(arr[i]);
+				}
+			}
+			return quickSort(leftArr).concat(center,quickSort(rightArr));
+			
+		}
+		console.log(quickSort([2,1,6,7,10]));
+	</script>
+</html>

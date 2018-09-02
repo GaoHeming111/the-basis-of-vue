@@ -13,10 +13,18 @@
 		</style>
 	</head>
 	<body>
-		<div class="father">
-			<div class="son">
-				
-			</div>
-		</div>
+		
 	</body>
+	<script>
+		function cancle(arr1){
+			var arr2 = [];
+			for(var i=0,len= arr1.length;i<len;i++){
+				if(arr2.indexOf(arr1[i])<0){
+					arr2.push(arr1[i]);
+				}
+			}
+			console.log(arr2);
+		}
+		cancle([1,2,2,2,3,4]);
+	</script>
 </html>
