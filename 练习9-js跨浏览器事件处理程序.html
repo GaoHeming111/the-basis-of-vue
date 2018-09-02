@@ -1,0 +1,22 @@
+//创建的方法是addHandlers(),removeHandlers(),这两个方法属于一个叫EventUtil的对象;但是这个没有考虑到IE中作用域的问题，不过就添加和移除事件还是足够的。
+ 
+var EventUtil = {
+   addHandlers: function (element, type, handlers) {
+      if (element.addEventListener) {
+         element.addEventListener(type, handlers, false);
+      } else if (element.attachEvent) {
+         element.attachEvent(on + type, handlers);
+      } else {
+         element['on' + type] = handlers;
+      }
+   },
+   removeHandlers: function (element, type, handlers) {
+      if (element.removeEventListener) {
+         element.removeEventListener(type, handlers, false);
+      } else if (element.detachEvent) {
+         element.detachEvent(on + type, handlers);
+      } else {
+         element['on' + type] = null;
+      }
+   }
+};

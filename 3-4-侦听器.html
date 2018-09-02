@@ -21,6 +21,7 @@
 					age:28
 				},
 				//侦听器，也自带缓存属性，但是代码复杂，推荐使用计算属性
+				//在数据变化时来执行异步操作，这时watch是非常有用的。
 				watch:{
 					firstName:function(){
 						this.fullName=this.firstName+" "+this.lastName;
