@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+//（1）前提是必须排好序，确定该区间的中间位置m
+//（2）将查找的值T与array[m]比较,若相等，查找成功返回此位置；否则确定新的查找区域，继续二分查找。
+	
+function BinarySearch(arr, target) {
+    let s = 0;
+    let e = arr.length - 1;
+    let m = Math.floor((s + e) / 2);
+    let sortTag = arr[s] <= arr[e];//确定排序顺序
+    while (s < e && arr[m] !== target) {
+        if (arr[m] > target) {
+            sortTag && (e = m - 1);
+            !sortTag && (s = m + 1);
+        } else {
+            !sortTag && (e = m - 1);
+            sortTag && (s = m + 1);
+        }
+        m = Math.floor((s + e) / 2);
+    }
+    if (arr[m] == target) {
+        console.log('找到了,位置%s', m);
+        return m;
+    } else {
+        console.log('没找到');
+        return -1;
+    }
+
+}
+	</script>
+</html>

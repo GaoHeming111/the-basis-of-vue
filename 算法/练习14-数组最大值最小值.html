@@ -32,7 +32,7 @@
 		function sortDifference(arr){
 			var max = Math.max.apply(Math,arr);
 			var min = Math.min.apply(Math,arr);
-			return max-min;
+			return {max,min};
 		}
 		console.log(sortDifference([1,10,29]));
 	</script>

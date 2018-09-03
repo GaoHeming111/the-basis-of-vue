@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var timer=null;
+			
+		</script>
+		
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		function A(){
+			this.add = function(a,b){
+				return a+b;
+			}
+		}
+		function B(){
+			
+		}
+		var one = new A();
+		var two = new B();
+		console.log(one.add.call(two,2,2));
+	</script>
+</html>
