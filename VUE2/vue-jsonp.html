@@ -6,6 +6,7 @@
     <script src="vue.js"></script>
     <script src="vue-resource.js"></script>
     <script>
+
         window.onload=function(){
             new Vue({
                 el:"#box",
@@ -16,9 +17,9 @@
                     jsonp:function(){
 //                        获取一个普通文本数据，如果正确执行第一个函数，如果错误执行第二个函数
                         this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
-                            wd:'a'
+                            wd:'a' //关键字
                         },{
-                            jsonp:'cb'
+                            jsonp:'cb'  //回掉函数
                         }).then(function(res){
                             alert(res.data.s);
                         },function(){
