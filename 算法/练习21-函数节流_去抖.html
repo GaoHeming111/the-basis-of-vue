@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		//节流：也就是会说预先设定一个执行周期，当调用动作的时刻大于等于执行周期则执行该动作，然后进入下一个新周期。
+		function scrollFn(){
+			console.log(1);
+		}
+		function throttle(method,delay,duration){
+			var timer = null;
+			var begin = new Date();
+			return function(){
+				var context = this;
+				var args = arguments;
+				var current = new Date();
+				clearTimeout(timer);
+				if(current-begin >= duration){
+					method.apply(context,args);
+					begin = current;
+				}else{
+					timer = setTimeout(function(){
+						method.apply(context,args);
+					},delay)
+				}
+			}
+		}
+		window.onscroll=throttle(scrollFn,100,500)
+		
+		//去抖： 也就是说当调用动作n毫秒后，才会执行该动作，若在这n毫秒内又调用此动作则将重新计算执行时间。
+		var debounce = function(idle, action){
+		  var last
+		  return function(){
+		    var ctx = this, args = arguments
+		    clearTimeout(last)
+		    last = setTimeout(function(){
+		        action.apply(ctx, args)
+		    }, idle)
+		  }
+		}
+	</script>
+</html>

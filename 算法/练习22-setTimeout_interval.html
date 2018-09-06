@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			setTimeout:
+//				setTimeout()方法用来指定某个函数或字符串在指定的毫秒数之后执行。
+//				可以用来进行异步操作
+//			若想获得obj对象中的a属性值，可以将obj.foo函数放置在定时器中的匿名函数中进行隐式绑定
+			var a = 0;
+			function foo(){
+			    console.log(this.a);
+			};
+			var obj = {
+			    a : 2,
+			    foo:foo
+			}
+			setTimeout(function(){
+			    obj.foo();
+			},100);//2
+			
+
+//-------------------settimeout应用-------------------------------------
+			//使用定时器来调整事件发生顺序，
+//			（1）如果，我们先让父元素的事件回调函数先发生，就要用到setTimeout(f, 0)
+//			 (2)用户自定义的回调函数，通常在浏览器的默认动作之前触发，想在浏览器之后执行，用settimeout()
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
