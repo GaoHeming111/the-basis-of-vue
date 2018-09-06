@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			（1)当声明一个全局变量的时候，实际上是定义了全局对象window的一个属性。
+			（2)  js没有块级作用域（你可以自己闭包或其他方法实现），只有函数级作用域，
+				在函数体内,var a=b=10;其中a是局部变量,b是全局变量
+			（3)变量的查找是就近原则，去寻找var定义的变量，当就近没有找到的时候就去查找外层。
+				var a = 10;
+				function aaa(){
+					alert(a);
+					var a = 20;
+				}
+				aaa(); //undefined  一是因为预解析，二是因为就近查找var
+				
+				var a = 10;
+				function aaa(){
+					alert(a);
+					a = 20;
+				}
+				aaa(); //10 在函数内把var去掉，就会就近找到全局的var
+				（4)当参数跟局部变量重名时，优先级是等同的。
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

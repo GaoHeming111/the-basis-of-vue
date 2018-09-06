@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+				function init() {
+				  var name = 'Mozilla'; // name 是 init 函数创建的局部变量
+				  function displayName() { // displayName() 是函数内部方法，一个闭包
+				    alert(name); // 它使用了父函数声明的变量   
+				  }
+				  displayName();    
+				}
+				init();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
