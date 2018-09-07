@@ -7,8 +7,58 @@
 //			函数A里面有函数B，当函数B被函数A外面的变量引用的时候，就创建了一个闭包。
 			闭包应用场景
 			(1)原生的setTimeout传递的第一个函数不能带参数,通过闭包可以实现传参效果
+				function f1(num){
+					return function(){
+						alert(num);
+					}
+				}
+				var f = f1(2);
+				setTimeout(f,1000);
+				//传参:
+				function b(num){
+					function change(val){
+						console.log(num+val);
+					}
+					return change;
+				}
+				var B = b(2); //这个2是num
+				B(2); //这个2是val
 			(2)闭包应用场景之回调
-
+//			回掉：size12, size14, 和 size16 现在可以分别调整 body 的字体到 12, 14, 16 像素。我们接下来可以把它们绑定到按钮上：		
+			
+			(3)继承
+				function my(name,age){
+					this.name = name;
+					this.age = age;
+				}
+				my.prototype.getName=function(){
+					return this.name;
+				}
+				my.prototype.getAge=function(){
+					return this.age;
+				}
+				var My = new my('gao','12');
+				console.log( My.getName());
+			
+			(4)使用闭包实现封装
+				在函数之外的地方无法访问函数内部的变量,而通过闭包的形式可以实现
+				
+			(5) 闭包的另一个重要用途是实现面向对象中的对象，
+				function Person(){    
+			    var name = "default";         
+				    return {    
+				       getName : function(){    
+				           return name;    
+				       },    
+				       setName : function(newName){    
+				           name = newName;    
+				       }    
+				    }    
+				}; 
+				var john = Person();    
+				print(john.getName());    
+				john.setName("john");    
+				print(john.getName());  
 		</script>
 	</head>
 	<body>

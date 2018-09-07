@@ -4,17 +4,26 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<script>
-				function init() {
-				  var name = 'Mozilla'; // name 是 init 函数创建的局部变量
-				  function displayName() { // displayName() 是函数内部方法，一个闭包
-				    alert(name); // 它使用了父函数声明的变量   
-				  }
-				  displayName();    
+			function b(num){
+					function change(val){
+						console.log(num+val);
+					}
+					return change;
 				}
-				init();
+				var B = b(2);
+				B(2);
 		</script>
+		<style>
+		.sanjian{
+			width: 0px; height: 0px;
+			border-top: 20px solid red;
+			border-bottom:20px solid transparent;
+			border-left:20px solid red;
+			border-right:20px solid transparent;
+		}
+		</style>
 	</head>
 	<body>
-		
+		<div class="sanjian"></div>
 	</body>
 </html>
