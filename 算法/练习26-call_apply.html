@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	$(function(){
+		//call/apply实现继承
+		function Person(name,age) {
+		　　this.name = name;
+		　　this.age = age;
+		}
+		function Student(name,age,height) {
+		　　Person.apply(this,arguments);
+		　　//Person.call(this,name,age,height);   //call方法的传参方式;    
+		　　this.height = height;
+		}
+		var student = new Student("gao","12","173");
+		//Student类中并没有name和age属性,但是通过apply和call的继承,使Student类继承了Person类中的成员方法.
+		
+		
+		//apply妙用
+		var arrs = [1,70,9,180,19,25,100,2,20];
+		function maxArrs(arrs){
+		　　return Math.max.apply('',arrs); //输出数组中最大的值
+		}
+		console.log(maxArrs(arrs));
+	})
+    </script>
+</head>
+<body>
+	<p id="p1">11</p>
+	<button id="but">按钮</button>
+</body>
+</html>

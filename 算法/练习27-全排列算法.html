@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+//  数据源a,b,c
+//
+//1.拿出a，组合数据group为空，插入数据源a元素到组合数据group，此时group=[a]
+//
+//2.拿出b，组合数据group拿出a，a和b组合，得到ab，把数据源b元素、ab插入组合数据group，此时group=[a,b,ab]
+//
+//3.拿出c，组合数据group拿出a、b、ab，分别与c组合，分别得到ac、bc、abc，把数据源c元素、ac、bc、abc插入组
+//	合数据group，此时group=[a,b,ab,c,ac,bc,abc]
+      	$(function(){
+			var arr = ['a','b','c','d'];
+			function getGroup(arr,index=0,group=[]){
+				var need_array = [];
+				need_array.push(arr[index]);
+				for(var i=0;i<group.length;i++){
+					need_array.push(arr[index]+group[i]);
+				}
+				group.push.apply(group,need_array);
+				if(index + 1 >= arr.length){
+					return group;
+				}else{
+					return getGroup(arr,index+1,group);
+				}
+			}
+			console.log(getGroup(arr));
+      	})
+    </script>
+</head>
+<body>
+	<p id="p1">11</p>
+	<button id="but">按钮</button>
+</body>
+</html>
