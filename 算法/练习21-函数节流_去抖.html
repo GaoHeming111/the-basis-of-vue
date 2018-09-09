@@ -8,7 +8,8 @@
 		
 	</body>
 	<script>
-		//节流：也就是会说预先设定一个执行周期，当调用动作的时刻大于等于执行周期则执行该动作，然后进入下一个新周期。
+		//节流：也就是会说预先设定一个执行周期，
+//		当调用动作的时刻大于等于执行周期则执行该动作，然后进入下一个新周期。
 		function scrollFn(){
 			console.log(1);
 		}
@@ -30,6 +31,15 @@
 				}
 			}
 		}
+//		案例:
+		var searchTimeout = null;
+		$('#input').on('keyup', function(event) {
+		//每次keyup时直接取消上次计时器，只有当keyup超过100ms时才执行handler
+		    clearTimeout(searchTimeout);
+		    searchTimeout = setTimeout(function() {
+		        handler();
+		    }, 100);
+		});
 		window.onscroll=throttle(scrollFn,100,500)
 		
 		//去抖： 也就是说当调用动作n毫秒后，才会执行该动作，若在这n毫秒内又调用此动作则将重新计算执行时间。
