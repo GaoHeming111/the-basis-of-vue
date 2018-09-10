@@ -6,12 +6,21 @@
 	</head>
 	<body>
 		<script>
+//			(1)
 			function person(){
 		        this.name="xl";
 		        console.log(this);
 		        console.log(this.name);
 		   }
 		    person();  //输出  window  xl
+//		    (2)
+		    var o = {
+			    user:"追梦子",
+			    fn:function(){
+			        console.log(this.user);  //追梦子
+			    }
+			}
+			o.fn();
 		</script>
 	</body>
 </html>
