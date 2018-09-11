@@ -14,13 +14,17 @@
 		   }
 		    person();  //输出  window  xl
 //		    (2)
-		    var o = {
-			    user:"追梦子",
-			    fn:function(){
-			        console.log(this.user);  //追梦子
+			var o = {
+			    a:10,
+			    b:{
+			        // a:12,
+			        fn:function(){
+			            console.log(this.a); //undefined
+			        }
 			    }
 			}
-			o.fn();
+			o.b.fn();
+			
 		</script>
 	</body>
 </html>
