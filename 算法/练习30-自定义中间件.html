@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//类似于自定义模块，我简单写一个自定义的body-parser，实现将post请求的数据存入req.body的功能。
+			const querystring=require('querystring');
+			module.exports={
+			  urlencoded: function (){
+			    return function (req, res, next){
+			      var str='';
+			      req.on('data', function (data){
+			        str+=data;
+			      });
+			      req.on('end', function (){
+			        req.body=querystring.parse(str);
+			        next();
+			      });
+			    };
+			  }
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
