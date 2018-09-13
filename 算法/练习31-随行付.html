@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var a = 9;
+					  //10    9    10    9     9
+				var b = a++ + a-- + ++a + --a + a--;
+				console.log(a,b); //8 47
+			}
+			//查询姓李老师的个数
+			SELECT COUNT(Tname) FROM Teacher WHERE (Tname like "李%");
+			//查询平均成绩大于60分的同学的学号和平均成绩
+			SELECT id,AVG(score) FROM Student GROUP BY AVG(score)>60;
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
