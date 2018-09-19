@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var lis = document.getElementsByTagName("li");
+				for(var i =0;i<lis.length;i++){
+					lis[i].onclick = function(){
+						alert(i); //单击每个li都弹出3
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+</html>
