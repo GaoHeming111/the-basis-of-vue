@@ -21,7 +21,10 @@
 				},
 				//计算属性,自带缓存功能，可以提高性能和速度
 				//computed 计算属性只有在相关的数据发生变化时才会改变要计算的属性，当相关数据没有变化是，它会读取缓存。
+				
 				computed:{
+					//computed应用场景：一个数据受多个数据影响
+						//例如fullName受firstName 和 lastName 影响
 					fullName:function(){
 						return this.firstName+' '+this.lastName;
 					}
