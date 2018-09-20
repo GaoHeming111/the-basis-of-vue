@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+		(function con(){
+			const names = [1,2,3];
+			names = [3,4,5];
+			console.log(arr); //会报错
+			
+			names[0] = 4; //不会报错
+			names.push(5); //不会报错
+		})();
+    </script>
+</head>
+<body>
+	<p id="p1">11</p>
+	<button id="but">按钮</button>
+</body>
+</html>

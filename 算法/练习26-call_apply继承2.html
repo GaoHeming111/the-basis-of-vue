@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+		function A(){
+		    this.abc=12;
+		}
+		A.prototype.show=function (){
+		    alert(this.abc);
+		};
+		function B(){
+		    //继承属性；this->new B()
+		    A.call(this);   //有参数可以传参数A.call(this,name,age)
+		}
+		//继承方法；B.prototype=A.prototype;
+		for(var i in A.prototype){
+		    B.prototype[i]=A.prototype[i];
+		}
+		//添加自己的方法
+		B.prototype.fn=function (){
+		    alert('abc');
+		};
+		var objB=new B();
+		var objA=new A();
+		objB.show(); //12
+		objB.fn(); //abc
+    </script>
+</head>
+<body>
+	<p id="p1">11</p>
+	<button id="but">按钮</button>
+	<input type="url" />
+	<select>
+		<option>13</option>		
+		<option>12</option>
+	</select>
+	<datalist>
+		<option>12</option>
+	</datalist>
+</body>
+</html>
