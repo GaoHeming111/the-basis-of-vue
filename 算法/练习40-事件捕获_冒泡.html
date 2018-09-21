@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+		window.onload = function(){
+			var ul = document.getElementsByTagName("ul")[0];
+			ul.addEventListener("click",function(e){
+				var ev = e||event;
+				var tar = ev.target;
+				tar.style.color = "red";
+				console.log(ev.currentTarget); //事件监听的对象ul
+			},true)
+			//第三个参数为true表示事件捕获，为false是事件冒泡，
+			//先捕获在冒泡，有事件冒泡发生一定伴随着事件捕获，
+			//但是有事件捕获不一定会有事件冒泡,比如alert就没有事件冒泡,事件捕获完就停止了
+		}
+    </script>
+</head>
+<body>
+	<ul style="background:#C0A16B;">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../VUE/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    	一.commmonJS
+    		(1)node.js的模块系统，就是参照CommonJS规范实现的。
+    		(2)require()用来引入外部模块；
+    			exports对象用于导出当前模块的方法或变量，唯一的导出口；
+    			module对象就代表模块本身。
+    		(3)
+    		(4)
+	    		var module = {
+				  exports: {}
+				};
+				(function(module, exports) {
+				  exports.multiply = function (n) { return n * 1000 };
+				}(module, module.exports));
+				var f = module.exports.multiply;
+				f(5) // 5000 
+//			上面代码向一个立即执行函数提供 module 和 exports 两个外部变量，
+//			模块就放在这个立即执行函数里面。模块的输出值放在 module.exports 之中，这样就实现了模块的加载。
+    	二.AMD
+    		(1)浏览器端的模块，不能采用"同步加载"（synchronous），只能采用"异步加载"（asynchronous）。
+    			这就是AMD规范诞生的背景。
+    		(2)语法:		require([module], callback);
+			    　　require(['math'], function (math) {
+			    　　　　math.add(2, 3);
+			    　　});
+			(3)require.js就是实现了AMD规范,require.js作用
+				A.实现js文件的异步加载，避免网页失去响应；
+　				B.管理模块之间的依赖性，便于代码的编写和维护。
+			(4)<script src="js/require.js" data-main="js/main.js"></script>
+				<!--data-main属性的作用是，指定网页程序的主模块。-->
+		三.CMD
+			(1)seajs，就是遵循他提出的CMD规范
+			(2)SeaJS对模块的态度是懒执行, 而RequireJS对模块的态度是预执行
+
+    </script>
+</head>
+<body>
+	<p id="p1">11</p>
+	<button id="but">按钮</button>
+</body>
+</html>
