@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			readyState 对象状态值
+			0（未初始化状态）对象已建立或已被abort()方法重置，尚未调用open方法。
+			1（初始化状态）open()方法已经调用，但是send()方法为调用。请求还没有被发送。
+			2（发送数据）send()方法法以调用,HTTP请求已发送到Web服务器。未接收到响应。
+			3（数据传送中）所有响应头部都已经接收到。响应体开始接受但未完成。
+			4（完成加载）HTTP响应已经完全接收。
+			ajax({
+                url: "./TestXHR.aspx",       //请求地址
+                type: "POST",                            //请求方式
+                data: { name: "super", age: 20 },    //请求参数
+                dataType: "json",
+                success: function (response, xml) {
+                  // 此处放成功后执行的代码
+                },
+                error: function (status) {
+                  // 此处放失败后执行的代码
+                }
+              });
+              
+              
+              	<!--封装-->
+              function ajax(options) {
+                    options = options || {};
+                    options.type = (options.type || "GET").toUpperCase();
+                    options.dataType = options.dataType || "json";
+                    var params = formatParams(options.data);
+                    var xhr;
+                    //创建 - 第一步
+                    if (window.XMLHttpRequest) {
+                      xhr = new XMLHttpRequest();
+                    } else if(window.ActiveObject) {         //IE6及以下
+                      xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                    }
+                    //连接 和 发送 - 第二步
+                    if (options.type == "GET") {
+                      xhr.open("GET", options.url + "?" + params, true);
+                      xhr.send(null);
+                    } else if (options.type == "POST") {
+                      xhr.open("POST", options.url, true);
+                      //设置表单提交时的内容类型
+                      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                      xhr.send(params);
+                    }
+                     //接收 - 第三步
+                    xhr.onreadystatechange = function () {
+                      if (xhr.readyState == 4) {
+                        var status = xhr.status;
+                        if (status >= 200 && status < 300 || status == 304) {
+                          options.success && options.success(xhr.responseText, xhr.responseXML);
+                        } else {
+                          options.error && options.error(status);
+                        }
+                      }
+                    }
+                  }
+                  //格式化参数
+                  function formatParams(data) {
+                    var arr = [];
+                    for (var name in data) {
+                      arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));
+                    }
+                    arr.push(("v=" + Math.random()).replace("."));
+                    return arr.join("&");
+                  }
+		</script>
+	</body>
+
+	
+</html>
